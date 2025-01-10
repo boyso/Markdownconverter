@@ -1,5 +1,9 @@
 # Markdown to HTML Converter
 
+<div align="center">
+  <img src="https://freemarkdown.com/logo.png" alt="Markdown Converter Logo" width="200" />
+</div>
+
 [English](#english) | [中文](#chinese) | [Try Online ↗](https://freemarkdown.com/)
 
 <a name="chinese"></a>
