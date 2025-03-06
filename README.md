@@ -10,7 +10,7 @@
 
 ## 中文版
 
-一个现代化的在线 [Markdown 转换](https://freemarkdown.com/)工具，支持实时预览和 HTML 导出功能。
+一个轻度的在线 [Markdown to HTML](https://freemarkdown.com)工具，支持实时预览和 HTML 导出功能,新增了轻度优雅的主题样式。
 
 ### ✨ 主要功能
 
