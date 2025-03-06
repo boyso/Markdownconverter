@@ -15,7 +15,7 @@
 ### ✨ 主要功能
 
 - 📝 实时 Markdown 编辑与预览
-- 🔄 [Markdown 转 HTML](https://freemarkdown.com/) 导出
+- 🔄 [Markdown to HTML](https://freemarkdown.com/) 导出
 - 📱 响应式设计，支持移动端
 - 📂 支持 Markdown 文件上传
 - 🎨 代码高亮显示
