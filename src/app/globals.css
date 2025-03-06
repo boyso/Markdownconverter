@@ -1,0 +1,324 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@layer base {
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    @apply antialiased text-gray-600 bg-gray-50;
+  }
+}
+
+@layer components {
+  .feature-card {
+    @apply bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100;
+  }
+
+  .feature-icon {
+    @apply w-12 h-12 rounded-lg mb-4 flex items-center justify-center text-2xl bg-blue-600 text-white;
+  }
+
+  .convert-button {
+    @apply px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#2A9B48] shadow-lg bg-[#2A9B48] hover:bg-green-700 text-white;
+  }
+
+  .faq-card {
+    @apply bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100;
+  }
+
+  .editor-container {
+    @apply bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-300;
+  }
+
+  .editor-container:hover {
+    @apply shadow-2xl;
+    transform: translateY(-2px);
+  }
+
+  .wmde-markdown {
+    @apply !bg-transparent;
+  }
+
+  /* 编辑器基础样式 */
+  .editor-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+  }
+
+  /* 全屏样式 */
+  .editor-container:fullscreen,
+  .editor-container:-webkit-full-screen,
+  .editor-container:-moz-full-screen,
+  .editor-container:-ms-fullscreen {
+    background: white;
+    padding: 2rem;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+  }
+
+  .editor-container:fullscreen .w-md-editor,
+  .editor-container:-webkit-full-screen .w-md-editor,
+  .editor-container:-moz-full-screen .w-md-editor,
+  .editor-container:-ms-fullscreen .w-md-editor {
+    height: calc(100vh - 160px) !important;
+    max-height: none !important;
+  }
+
+  .editor-container:fullscreen .editor-actions,
+  .editor-container:-webkit-full-screen .editor-actions,
+  .editor-container:-moz-full-screen .editor-actions,
+  .editor-container:-ms-fullscreen .editor-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1);
+    z-index: 50;
+    padding: 1rem;
+  }
+
+  /* 编辑器工具栏样式 */
+  .w-md-editor-toolbar {
+    position: sticky !important;
+    top: 0;
+    z-index: 30;
+    background: white;
+  }
+
+  .w-md-editor-toolbar button[data-name="fullscreen"] {
+    @apply hover:bg-gray-100 transition-colors;
+  }
+
+  /* 编辑器内容区域样式 */
+  .w-md-editor-content {
+    min-height: 200px;
+  }
+
+  /* 编辑器全屏样式 */
+  .w-md-editor:fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+    background: white !important;
+    padding: 2rem !important;
+  }
+
+  .w-md-editor:fullscreen .w-md-editor-content {
+    height: calc(100vh - 160px) !important;
+  }
+
+  /* 按钮样式 */
+  .editor-actions {
+    @apply flex flex-col md:flex-row items-center justify-center gap-4 p-4;
+  }
+
+  .editor-actions > div {
+    @apply flex items-center gap-2;
+  }
+
+  .convert-button {
+    @apply bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors;
+    /* max-width: 300px; */
+  }
+
+  .preview-button {
+    @apply bg-blue-50 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-100 transition-colors flex items-center gap-2;
+    max-width: 300px;
+  }
+
+  .fullscreen-button {
+    @apply bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors flex items-center gap-2;
+    max-width: 300px;
+  }
+
+  /* 移动端优化 */
+  @media (max-width: 768px) {
+    /* 头部导航优化 */
+    header h1 {
+      @apply text-2xl !important;
+      line-height: 1.2 !important;
+    }
+
+    header p {
+      @apply text-base px-4 !important;
+      line-height: 1.4 !important;
+    }
+
+    header .flex {
+      @apply flex-col gap-3 !important;
+    }
+
+    header img {
+      @apply w-8 h-8 !important;
+    }
+
+    /* 编辑器容器优化 */
+    .editor-container {
+      height: calc(100vh - 200px);
+      position: relative;
+    }
+
+    .editor-container > div:first-child {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .editor-actions {
+      @apply flex-col gap-2;
+    }
+
+    .editor-actions > div {
+      @apply w-full;
+    }
+
+    .editor-actions button {
+      @apply w-full;
+    }
+
+    .convert-button {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .w-md-editor {
+      height: 100% !important;
+      width: 100% !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+
+    .w-md-editor-content {
+      height: calc(100% - 50px) !important;
+    }
+
+    .w-md-editor-toolbar {
+      flex-wrap: wrap;
+      padding: 8px !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 40 !important;
+      background-color: #fff !important;
+      border-radius: 0 !important;
+    }
+
+    .w-md-editor-toolbar ul {
+      gap: 4px;
+    }
+
+    .w-md-editor-toolbar ul button {
+      padding: 4px !important;
+    }
+
+    /* 预览模式下的编辑器样式 */
+    .w-md-editor[data-mode="preview"] .w-md-editor-content {
+      padding: 16px !important;
+    }
+
+    /* 转换按钮样式 */
+    .convert-button {
+      @apply w-full max-w-sm mx-auto !important;
+    }
+  }
+
+  /* 编辑器响应式优化 */
+  .w-md-editor-toolbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    background-color: #f9fafb !important;
+  }
+
+  .w-md-editor-preview {
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 触摸设备优化 */
+  @media (hover: none) {
+    .w-md-editor-toolbar button {
+      padding: 8px !important;
+    }
+
+    .convert-button:active {
+      transform: scale(0.98);
+    }
+  }
+
+  .file-upload {
+    @apply transition-all duration-300;
+  }
+
+  .file-upload:hover {
+    @apply border-gray-400 bg-gray-50;
+  }
+
+  .file-upload.dragging {
+    @apply border-blue-500 bg-blue-50;
+  }
+}
+
+/* Markdown Editor Customization */
+.w-md-editor {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.w-md-editor-toolbar {
+  border-bottom: 1px solid #f1f5f9 !important;
+  background-color: #f8fafc !important;
+}
+
+.w-md-editor-toolbar ul li button {
+  color: #4b5563 !important;
+}
+
+.w-md-editor-toolbar ul li button:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.w-md-editor-content {
+  background-color: white !important;
+}
+
+.w-md-editor-preview {
+  background-color: #f8fafc !important;
+}
+
+.wmde-markdown {
+  background-color: transparent !important;
+}
+
+.theme-button {
+  @apply bg-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors flex items-center gap-2;
+  max-width: 300px;
+}
+
+/* Theme preview styles */
+.theme-preview {
+  @apply rounded-lg overflow-hidden shadow-sm border;
+  height: 120px;
+}

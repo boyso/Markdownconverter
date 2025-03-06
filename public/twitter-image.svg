@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="418" viewBox="0 0 800 418" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="418" fill="#2563EB"/>
+  <rect x="40" y="40" width="720" height="338" rx="12" fill="white"/>
+  <g transform="translate(80 80)">
+    <rect width="48" height="48" rx="8" fill="#2563EB"/>
+    <path d="M12 12H36V36H12V12ZM34 34V14H14V34H34ZM17 18H20V24H24V18H27L22 23L17 18ZM17 27H31V30H17V27Z" fill="white"/>
+  </g>
+  <text x="150" y="120" font-family="system-ui, -apple-system" font-size="48" font-weight="bold" fill="#1F2937">Free Markdown to HTML</text>
+  <text x="150" y="170" font-family="system-ui, -apple-system" font-size="24" fill="#4B5563">Convert your Markdown to clean HTML instantly</text>
+  <text x="150" y="220" font-family="system-ui, -apple-system" font-size="18" fill="#6B7280">✨ Real-time Preview   🚀 Clean Output   🎨 Syntax Highlighting</text>
+</svg>
